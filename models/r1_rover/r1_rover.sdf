@@ -169,7 +169,7 @@
           <bounce>
             <restitution_coefficient>0</restitution_coefficient>
             <threshold>1e6</threshold>
-          </bounce>          
+          </bounce>
           <contact>
             <ode>
               <min_depth>0.001</min_depth>
@@ -425,7 +425,7 @@
           <bounce>
             <restitution_coefficient>0</restitution_coefficient>
             <threshold>1e6</threshold>
-          </bounce>          
+          </bounce>
           <contact>
             <ode>
               <min_depth>0.001</min_depth>
@@ -524,6 +524,16 @@
       <child>gps::link</child>
       <parent>base_link</parent>
     </joint>
+
+    <include>
+      <uri>model://rplidar</uri>
+      <pose>0 0 0.3 0 0 0</pose>
+    </include>
+    <joint name="rplidar_joint" type="fixed">
+      <child>rplidar::link</child>
+      <parent>base_link</parent>
+    </joint>
+
     <plugin name='gazebo_imu_plugin' filename='libgazebo_imu_plugin.so'>
       <robotNamespace></robotNamespace>
       <linkName>rover/imu_link</linkName>
