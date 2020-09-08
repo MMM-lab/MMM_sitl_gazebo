@@ -24,7 +24,10 @@
         </geometry>
       </visual>
 
+      <sensor name="laser" type="ray">
+      <!-- use gpu:
       <sensor name="laser" type="gpu_ray">
+      -->
         <ray>
           <scan>
             <horizontal>
@@ -45,8 +48,12 @@
             <stddev>0.01</stddev>
           </noise>
         </ray>
+        <plugin name="laser" filename="libRayPlugin.so" />
+        <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_laser.so">
+        <!-- use gpu:
         <plugin name="laser" filename="libGpuRayPlugin.so" />
         <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_gpu_laser.so">
+        -->
           <topicName>laser/scan</topicName>
           <frameName>rplidar_link</frameName>
         </plugin>
